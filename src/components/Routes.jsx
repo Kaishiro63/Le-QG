@@ -34,8 +34,8 @@ const Routes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false, gestureEnabled: false }}>
-        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Dashboard" component={DashboardScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="MapScreen" component={MapScreen} />
