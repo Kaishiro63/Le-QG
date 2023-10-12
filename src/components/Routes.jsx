@@ -7,6 +7,7 @@ import MapScreen from "../screens/MapScreen";
 import VoteScreen from "../screens/VoteScreen";
 import DashboardScreen from "../screens/DashboardScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import RegisterScreen from "../screens/RegisterScreen";
 import { useSelector } from "react-redux";
 
 const Stack = createNativeStackNavigator();
@@ -40,7 +41,8 @@ const Routes = () => {
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="MapScreen" component={MapScreen} />
         <Stack.Screen name="VoteScreen" component={VoteScreen} />
-        <Stack.Screen name="ActivityScreen" component={ActivityScreen} />
+        <Stack.Screen name="Activity" component={ActivityScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

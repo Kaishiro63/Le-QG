@@ -11,9 +11,10 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 
-const LoginScreen = ({navigation}) => {
+const RegisterScreen = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleScreenPress = () => {
     Keyboard.dismiss();
@@ -25,8 +26,8 @@ const LoginScreen = ({navigation}) => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={{ flex: 1, backgroundColor: "#EFF9FE", display: "flex", alignItems: "center" }}
       >
-        <Text style={{ fontSize: 30, fontWeight: "bold", marginTop: 80, marginBottom: 90 }}>
-          Bienvenue
+        <Text style={{ fontSize: 30, fontWeight: "bold", marginTop: 80, marginBottom: 80 }}>
+          Créer un compte
         </Text>
         <View style={styles.containerForm}>
           <View>
@@ -41,37 +42,29 @@ const LoginScreen = ({navigation}) => {
               />
             </View>
             <View style={styles.containerInput}>
+              <Text style={{ marginLeft: 10, marginBottom: 10 }}>Username</Text>
+              <TextInput
+                style={styles.input}
+                onChangeText={(num) => setUsername(num)}
+                value={username}
+                placeholder="username"
+              />
+            </View>
+            <View style={styles.containerInput}>
               <Text style={{ marginLeft: 10, marginBottom: 10 }}>Password</Text>
               <TextInput
                 style={styles.input}
                 onChangeText={(num) => setPassword(num)}
                 value={password}
                 placeholder="Password"
+                keyboardType="text"
                 secureTextEntry={true}
               />
             </View>
-            <TouchableOpacity style={styles.passwordForgotView}>
-              <Text style={{ color: "#53BFF8" }}>Mot de passe oublié ?</Text>
-            </TouchableOpacity>
           </View>
           <View style={{ width: "100%" }}>
             <TouchableOpacity style={styles.buttonStyle}>
-              <Text style={{ color: "white", fontWeight : 'bold' }}>Se connecter</Text>
-            </TouchableOpacity>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 10,
-                marginTop: 10,
-              }}
-            >
-              <View style={{ flex: 1, height: 1, backgroundColor: "gray" }} />
-              <Text style={{ marginHorizontal: 10, color: "gray" }}>or</Text>
-              <View style={{ flex: 1, height: 1, backgroundColor: "gray" }} />
-            </View>
-            <TouchableOpacity onPress={() => navigation.navigate("Register")} style={styles.buttonStyleCreateAccount}>
-              <Text style={{ color: "black", fontWeight : 'bold' }}>Creer un compte</Text>
+              <Text style={{ color: "white", fontWeight: "bold" }}>Creer un compte</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -91,6 +84,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   buttonStyle: {
+    marginTop: 25,
     borderRadius: 50,
     height: 50,
     width: "100%",
@@ -98,16 +92,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#53BFF8",
-  },
-  buttonStyleCreateAccount: {
-    borderRadius: 50,
-    height: 50,
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "transparent",
-    borderWidth: 1,
   },
   containerForm: {
     display: "flex",
@@ -122,4 +106,4 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
-export default LoginScreen;
+export default RegisterScreen;
